@@ -175,3 +175,13 @@ export const useChatStore = create<ChatState>()(
       ),
   })
 );
+
+
+const store = () => ({
+  ...initialState,
+  updateChatVoiceSettings: (voiceID: string) => set((state) => {
+    state.settingsForm.voice_id = voiceID;
+  }),
+} as ChatState & {
+  updateChatVoiceSettings: (voiceID: string) => void;
+});

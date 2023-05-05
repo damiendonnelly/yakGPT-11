@@ -27,6 +27,8 @@ import { useRouter } from "next/router";
 import { addChat, setChosenCharacter } from "@/stores/ChatActions";
 import { submitMessage } from "@/stores/SubmitMessage";
 
+const updateChatVoiceSettings = useChatStore((state) => state.updateChatVoiceSettings);
+
 const scriptBase = ({
   character,
   characterDescription,
@@ -245,6 +247,7 @@ export default function NewChatCarousel() {
               onClick={(e) => {
                 setChosenCharacter(key);
                 addChat(router);
+                updateChatVoiceSettings(character.voiceID);
                 submitMessage({
                   id: uuidv4(),
                   content:

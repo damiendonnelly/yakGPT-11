@@ -31,13 +31,13 @@ const getVars = (): VarsShape => {
     ? {
         apiKey: state.apiKeyAzure,
         apiKeyRegion: state.apiKeyAzureRegion,
-        voiceId: state.settingsForm.voice_id_azure || DEFAULT_AZURE_VOICE,
+        voiceId: state.chosenVoiceID || state.settingsForm.voice_id_azure || DEFAULT_AZURE_VOICE,
         voiceStyle: state.settingsForm.spoken_language_style,
         genAudio: genAudioAzure,
       }
     : {
         apiKey: state.apiKey11Labs,
-        voiceId: state.settingsForm.voice_id || DEFAULT_11LABS_VOICE,
+        voiceId: state.chosenVoiceID || state.settingsForm.voice_id || DEFAULT_11LABS_VOICE,
         genAudio: genAudio11Labs,
       };
 };
